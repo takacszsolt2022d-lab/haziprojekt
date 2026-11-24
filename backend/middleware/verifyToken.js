@@ -11,7 +11,7 @@ const verifyToken = (req, res, next) => {
         return res.status(401).json({ message: "Access denied. No token provided." });
     }
 
-    jsonwentoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    jsonwentoken.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
         if (err) {
             return res.status(403).json({ message: "Invalid token." });
         }

@@ -1,11 +1,10 @@
-const express = require("express");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
-require("dotenv").config();
-
-const db = require("./config/db");
-const authController = require("./controllers/authcontroller");
-const verifyToken = require("./middleware/verifyToken");
+import express from "express";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import "dotenv/config";
+import db from "./config/db.js";
+import * as authController from "./controllers/authcontroller.js";
+import verifyToken from "./middleware/verifyToken.js";
 
 const app = express();
 

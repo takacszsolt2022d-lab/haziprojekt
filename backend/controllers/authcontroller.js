@@ -1,8 +1,8 @@
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const db = require("../config/db");
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import db from "../config/db.js";
 
-exports.register = async (req, res, next) => {
+export const register = async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
 
@@ -31,7 +31,7 @@ exports.register = async (req, res, next) => {
     }
 };
 
-exports.login = async (req, res, next) => {
+export const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         if (!email || !password) {
@@ -71,7 +71,7 @@ exports.login = async (req, res, next) => {
     }
 };
 
-exports.refreshToken = async (req, res, next) => {
+export const refreshToken = async (req, res, next) => {
     try {
         const cookies = req.cookies;
         if (!cookies?.refreshToken) {
@@ -103,7 +103,7 @@ exports.refreshToken = async (req, res, next) => {
     }
 };
 
-exports.logout = async (req, res, next) => {
+export const logout = async (req, res, next) => {
     try {
         const cookies = req.cookies;
         if (!cookies?.refreshToken) {
